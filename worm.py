@@ -209,7 +209,7 @@ def getHostsOnTheSameNetwork():
 	# and return the list of discovered
 	# IP addresses.	
 	portScanner = nmap.PortScanner()
-	portScanner.scan('10.0.2.15', arguments='-p -22 --open')
+	portScanner.scan('10.0.2.15/24', arguments='-p -22 --open')
 	hostInfo = portScanner.all_hosts();
 	liveHosts = []
 	ip_add = getMyIP(b"eth0")
