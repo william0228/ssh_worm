@@ -89,7 +89,7 @@ def markInfected():
 
 	#dstIP,dstPort = info()
 	#counter = input("How many packets do you want to send : ")
-	dstIP = '127.0.0.1'
+	dstIP = "127.0.0.1"
 	dstPort = 8888
 	counter = 1000
 
