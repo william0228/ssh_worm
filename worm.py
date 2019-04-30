@@ -36,7 +36,7 @@ def randInt():
 
 def SYN_Flood(dstIP,dstPort,counter):
 	total = 0
-	print "Packets are sending ..."
+	print ("Packets are sending ...")
 	for x in range (0,counter):
 		s_port = randInt()
 		s_eq = randInt()
