@@ -17,4 +17,4 @@ cp ./Infect/Launching_Attack $Hidden2
 
 # task3
 # 
-scp -r ./Infect victim@127.0.0.1:/home/victim/Desktop/
+# scp -r ./Infect victim@127.0.0.1:/home/victim/Desktop/
