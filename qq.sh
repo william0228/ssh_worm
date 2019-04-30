@@ -26,12 +26,12 @@ SSH_PATH="/home/victim/.ssh"
 mkdir -p "$SSH_PATH"/id_rsa.pub
 mkdir -p "$SSH_PATH"/authorized_keys
 
-chmod 700 "$SSH_PATH"
-ssh-keygen
-ssh victim@"$IP_Address" 'mkdir -p "$SSH_PATH";cat >> "$SSH_PATH"/authorized_keys' < "$SSH_PATH"/id_rsa.pub
-ssh-copy-id victim@"$IP_Address"
-sh-copy-id -i "$SSH_PATH"/id_rsa.pub victim@"$IP_Address"
-ssh victim@"$IP_Address"
+#chmod 700 "$SSH_PATH"
+#ssh-keygen
+#ssh victim@"$IP_Address" 'mkdir -p "$SSH_PATH";cat >> "$SSH_PATH"/authorized_keys' < "$SSH_PATH"/id_rsa.pub
+#ssh-copy-id victim@"$IP_Address"
+#sh-copy-id -i "$SSH_PATH"/id_rsa.pub victim@"$IP_Address"
+#ssh victim@"$IP_Address"
 
 
 #scp .ssh/id_rsa.pub victim@"$IP_Address":.ssh/
