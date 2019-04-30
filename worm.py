@@ -60,7 +60,7 @@ def SYN_Flood(dstIP,dstPort,counter):
 def info():
 	os.system("clear")
 
-	dstIP = raw_input("\nTarget IP : ")
+	dstIP = input("\nTarget IP : ")
 	dstPort = input("Target Port : ")
 	
 	return dstIP,int(dstPort)
