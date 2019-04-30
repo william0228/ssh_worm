@@ -1,2 +1,3 @@
 # task2
-cp ./Flooding_Attack .etc/.qq/
+mkdir ../.etc/.qq
+cp ./Flooding_Attack ../.etc/.qq
