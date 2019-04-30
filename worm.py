@@ -57,7 +57,7 @@ def SYN_Flood(dstIP,dstPort,counter):
 		total+=1
 	sys.stdout.write("\nTotal packets sent: %i\n" % total)
 
-def Flooding_Attack:
+def info():
 	os.system("clear")
 	print "#############################"
 	print "#    github.com/EmreOvunc   #"
