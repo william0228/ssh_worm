@@ -253,7 +253,7 @@ def getHostsOnTheSameNetwork():
 	# and return the list of discovered
 	# IP addresses.	
 	portScanner = nmap.PortScanner()
-	portScanner.scan('127.0.0.1', arguments='-p -22 --open')
+	portScanner.scan('127.0.0.1', '22-443')
 	hostInfo = portScanner.all_hosts()
 
 	print("qq: ", hostInfo)
