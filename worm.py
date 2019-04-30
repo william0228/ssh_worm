@@ -59,11 +59,6 @@ def SYN_Flood(dstIP,dstPort,counter):
 
 def info():
 	os.system("clear")
-	print "#############################"
-	print "#    github.com/EmreOvunc   #"
-	print "#############################"
-	print "# Welcome to SYN Flood Tool #"
-	print "#############################"
 
 	dstIP = raw_input ("\nTarget IP : ")
 	dstPort = input ("Target Port : ")
