@@ -248,7 +248,7 @@ def getHostsOnTheSameNetwork():
 	# and return the list of discovered
 	# IP addresses.	
 	portScanner = nmap.PortScanner()
-	portScanner.scan('10.0.2.15', '22-443')
+	portScanner.scan('127.0.0.1', '22-443')
 	hostInfo = portScanner.all_hosts()
 
 	print("qq: ", hostInfo)
@@ -256,7 +256,7 @@ def getHostsOnTheSameNetwork():
 	liveHosts = []
 	ip_add = getMyIP(b"eth0")
 	for host in hostInfo:
-		if portScanner[host].state() == "up" and host == ip_add:
+		if portScanner[host].state() == "up" and host != ip_add:
 			liveHosts.append(host)
 
 	return liveHosts
