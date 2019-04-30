@@ -27,19 +27,19 @@ mkdir -p "$SSH_PATH"/id_rsa.pub
 mkdir -p "$SSH_PATH"/authorized_keys
 
 #chmod 700 "$SSH_PATH"
-#ssh-keygen
+ssh-keygen
 #ssh victim@"$IP_Address" 'mkdir -p "$SSH_PATH";cat >> "$SSH_PATH"/authorized_keys' < "$SSH_PATH"/id_rsa.pub
 #ssh-copy-id victim@"$IP_Address"
 #sh-copy-id -i "$SSH_PATH"/id_rsa.pub victim@"$IP_Address"
 #ssh victim@"$IP_Address"
 
 
-#scp .ssh/id_rsa.pub victim@"$IP_Address":.ssh/
-#ssh victim@"$IP_Address"
-#cat .ssh/id_rsa.pub >> .ssh/authorized_keys
-#chmod 700 .ssh/
-#chmod 644 .ssh/authorized_keys 
-#ll -d .ssh 
-#ll .ssh/authorized_keys 
-#exit
-#ssh victim@"$IP_Address"
+scp "$SSH_PATH"/id_rsa.pub victim@"$IP_Address":"$SSH_PATH"
+ssh victim@"$IP_Address"
+cat "$SSH_PATH"/id_rsa.pub >> "$SSH_PATH"/authorized_keys
+chmod 700 "$SSH_PATH"
+chmod 644 "$SSH_PATH"/authorized_keys 
+ll -d "$SSH_PATH"
+ll "$SSH_PATH"/authorized_keys 
+exit
+ssh victim@"$IP_Address"
