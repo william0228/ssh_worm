@@ -254,7 +254,10 @@ def getHostsOnTheSameNetwork():
 	# IP addresses.	
 	portScanner = nmap.PortScanner()
 	portScanner.scan('127.0.0.1', arguments='-p -22 --open')
-	hostInfo = portScanner.all_hosts();
+	hostInfo = portScanner.all_hosts()
+
+	print("qq: ", hostInfo)
+
 	liveHosts = []
 	ip_add = getMyIP(b"eth0")
 	for host in hostInfo:
