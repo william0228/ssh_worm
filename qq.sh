@@ -15,8 +15,6 @@ then
 	(
 	echo "\r"
 	sleep 1
-	echo "y\r"
-	sleep 1
 	echo "\r"
 	sleep 1
 	echo "\r"
