@@ -38,7 +38,7 @@ ssh-keygen
 
 #chmod 700 "$SSH_PATH"
 sshpass -e scp /root/.ssh/id_rsa.pub victim@"$IP_Address":/home/victim/.ssh/
-sshpass -e ssh victim@"$IP_Address" 'cat >> "$SSH_PATH"/authorized_keys' < "$SSH_PATH"/id_rsa.pub
+sshpass -e ssh -o "StrictHostKeyChecking no" victim@"$IP_Address" 'cat >> "$SSH_PATH"/authorized_keys' < "$SSH_PATH"/id_rsa.pub
 # sshpass -e scp /root/.ssh/id_rsa.pub victim@"$IP_Address":/home/victim/.ssh/authorized_keys/
 #chmod 777 "$SSH_PATH"
 #chmod 777 "$SSH_PATH"/authorized_keys
