@@ -30,7 +30,7 @@ SSH_PATH="/home/victim/.ssh" #"/root/.ssh"
 #mkdir -p "SSH_PATH"/.ssh
 #chmod 700 "$SSH_PATH"
 ssh-keygen
-sshpass -e ssh victim@"$IP_Address" 'mkdir -p "$SSH_PATH";'
+#sshpass -e ssh victim@"$IP_Address" 'mkdir -p "$SSH_PATH";'
 
 #ssh-copy-id victim@"$IP_Address"
 #ssh-copy-id -i "$SSH_PATH" victim@"$IP_Address"
