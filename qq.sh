@@ -1,6 +1,6 @@
 # task3
 # input victim's IP address
-export SSHPASS='hihi123'
+export SSHPASS='victim'
 
 read -p "Enter Victim IP Address: " IP_Address
 read -p "First?(y/n) " First
