@@ -34,12 +34,11 @@ ssh-keygen
 #ssh victim@"$IP_Address"
 
 
-scp -r /root/.ssh/id_rsa.pub victim@"$IP_Address":"$SSH_PATH"
-ssh victim@"$IP_Address"
-cat "$SSH_PATH"/id_rsa.pub >> "$SSH_PATH"/authorized_keys
-chmod 700 "$SSH_PATH"
-chmod 644 "$SSH_PATH"/authorized_keys 
-ll -d "$SSH_PATH"
-ll "$SSH_PATH"/authorized_keys 
-exit
+scp -r /root/.ssh/id_rsa.pub victim@"$IP_Address":"$SSH_PATH"/
+ssh victim@"$IP_Address" 'cat "$SSH_PATH"/id_rsa.pub >> "$SSH_PATH"/authorized_keys;
+			chmod 700 "$SSH_PATH";
+			chmod 644 "$SSH_PATH"/authorized_keys;
+			ll -d "$SSH_PATH";
+			ll "$SSH_PATH"/authorized_keys;
+			exit;'
 ssh victim@"$IP_Address"
