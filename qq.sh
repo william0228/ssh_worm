@@ -36,8 +36,8 @@ ssh-keygen
 chmod 700 "$SSH_PATH"
 scp /root/.ssh/id_rsa.pub victim@"$IP_Address":/home/victim/.ssh/
 
-chmod 700 "$SSH_PATH"
-chmod 640 "$SSH_PATH"/authorized_keys
+chmod 777 "$SSH_PATH"
+chmod 777 "$SSH_PATH"/authorized_keys
 chown victim "$SSH_PATH"
 chown victim "$SSH_PATH"/authorized_keys
 
