@@ -34,7 +34,7 @@ ssh-keygen
 #ssh victim@"$IP_Address"
 
 #chmod 777 ~/.ssh/id_rsa.pub
-scp /root/.ssh/id_rsa.pub victim@"$IP_Address":/home/victim/Desktop/
+scp /root/.ssh/id_rsa.pub victim@"$IP_Address":/home/victim/.ssh/
 #scp /root/.ssh/id_rsa.pub victim@"$IP_Address":/home/victim/.ssh/
 ssh victim@"$IP_Address" 
 cat "$SSH_PATH"/id_rsa.pub >> "$SSH_PATH"/authorized_keys
