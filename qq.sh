@@ -27,9 +27,9 @@ SSH_PATH="/home/victim/.ssh"
 #	sleep 1
 #	echo "n\r"
 #	sleep 1
-#	)|ssh-keygen
+#	)|
 #fi
-
+ssh-keygen
 # sshpass -e scp /root/.ssh/id_rsa.pub victim@"$IP_Address":/home/victim/.ssh/
 #(echo "victim\r")|
 sshpass -e scp /root/.ssh/id_rsa.pub victim@"$IP_Address":/home/victim/.ssh/authorized_keys
